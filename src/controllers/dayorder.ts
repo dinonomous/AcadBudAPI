@@ -34,7 +34,6 @@ export async function Order(req: Request, res: Response) {
     if (OrderResponse.status === 200 && OrderResponse.data) {
       const decodedHTML = decodeEncodedString(OrderResponse.data);
       const dayOrder = extractDayOrder(decodedHTML);
-
       if (dayOrder !== null) {
         res.status(200).json({ dayOrder });
       } else {

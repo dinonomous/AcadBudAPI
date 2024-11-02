@@ -120,7 +120,11 @@ export async function auth(req: Request, res: Response) {
       }
       const passwordData = passwordResponse.data;
       // console.log((req as any).session.cookies);
-      if (passwordData.message === "Sign in success" || passwordData.message === "SignIn success with post announcement redirection") {
+      if (
+        passwordData.message === "Sign in success" ||
+        passwordData.message ===
+          "SignIn success with post announcement redirection"
+      ) {
         console.log("success");
         res.status(200).json({ message: "Sign in success" });
       } else {

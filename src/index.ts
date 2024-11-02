@@ -9,12 +9,20 @@ import { notFound, errorHandler } from "./middleware/errorMiddleware";
 
 const app = express();
 app.set("trust proxy", 1);
+const client = require("./redisClient");
 const session = require("express-session");
+const RedisStore = require("connect-redis").default;
+const frontend = process.env.FE_URL;
+
+let redisStore = new RedisStore({
+  client: client,
+});
 
 const isProduction = process.env.NODE_ENV === "production";
 
 app.use(
   session({
+    store: redisStore,
     secret: "blueberry juice",
     resave: false,
     saveUninitialized: true,

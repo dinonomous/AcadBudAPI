@@ -1,8 +1,7 @@
 import axios from "axios";
 import cheerio from "cheerio";
 import { Request, Response } from "express";
-const WebsiteMetadataModel = require('../models/linksModel');
-import type { WebsiteMetadata } from "../types/TSconfigTypes";
+import WebsiteMetadataModel from '../models/linksModel';
 
 async function fetchMetadataForUrl(url: string) {
   try {
@@ -60,7 +59,6 @@ export async function fetchWebsiteMetadata(req: Request, res: Response) {
     res.status(500).json({ error: "Error fetching website metadata" });
   }
 }
-
 
 export async function confirmWebsiteMetadata(req: Request, res: Response) {
   try {

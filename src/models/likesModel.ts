@@ -10,4 +10,4 @@ likeSchema.index({ itemId: 1, "users": 1 }, { unique: true });
 
 const Like = db.model("Like", likeSchema);
 
-module.exports = Like;
+export default Like

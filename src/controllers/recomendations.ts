@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-const WebsiteMetadataModel = require('../models/linksModel');
+import WebsiteMetadataModel from '../models/linksModel';
 import type { WebsiteMetadata } from "../types/TSconfigTypes";
-const Like = require('../models/likesModel')
+import Like from '../models/likesModel'
 
 export async function getAllByCategory(req: Request, res: Response): Promise<void> {
   const userId = req.params.userId;

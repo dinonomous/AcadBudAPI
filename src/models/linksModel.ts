@@ -52,4 +52,4 @@ const WebsiteMetadataSchema = new mongoose.Schema({
 
 WebsiteMetadataSchema.index({ title:1, category: 1, tags: 1 });
 
-module.exports = db.model("WebsiteMetadata", WebsiteMetadataSchema);
+export default db.model("WebsiteMetadata", WebsiteMetadataSchema);
